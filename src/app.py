@@ -13,10 +13,7 @@ from api.models import db, User
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
-from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "https://urban-space-succotash-jjrv6jgvxqg62q945-3000.app.github.dev"}}, supports_credentials=True)
 # from models import Person
 
 ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"

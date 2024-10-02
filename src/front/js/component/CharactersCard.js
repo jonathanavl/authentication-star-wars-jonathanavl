@@ -27,18 +27,16 @@ export const CharactersCard = ({ handleCharacters }) => {
                                     Learn more
                                 </button>
                                 <button
-    onClick={() => actions.toggleFavorites("characters", character.id)}
-    className={`fav-button ${actions.isFavorite("characters", character.id) ? 'active' : ''}`}
->
-    <img
-        src={soldado}
-        width="20"
-        height="auto"
-        alt="Favorite"
-    />
-</button>
-
-
+                                    onClick={() => actions.toggleFavorites(character.id)}  // Usa character.id
+                                    className={`fav-button ${actions.isFavorite(character.id) ? 'active' : ''}`}  // Verifica si es favorito con character.id
+                                >
+                                    <img
+                                        src={soldado}
+                                        width="20"
+                                        height="auto"
+                                        alt="Favorite"
+                                    />
+                                </button>
 
                             </div>
                         </div>

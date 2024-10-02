@@ -27,7 +27,7 @@ export const PlanetsCard = ({ handlePlanets }) => {
                                     Learn more
                                 </button>
                                 <button
-                                    onClick={() => actions.toggleFavorites(planet.id, user.id)}
+                                    onClick={() => actions.toggleFavorites(planet.id)}
                                     className={`fav-button ${actions.isFavorite(planet.id) ? 'active' : ''}`}
                                 >
                                     <img
