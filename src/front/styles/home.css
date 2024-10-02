@@ -1,7 +1,320 @@
-/*
-    home.css: This website contains selectors only used in home.css
+/* Estilos generales */
+.background {
+    background-image: url('https://hips.hearstapps.com/hmg-prod/images/estrella-de-la-muerte-2-1540977640.jpeg?resize=2048:*');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+/* Estilos de la barra de navegación */
+.navbar.dark {
+    background-color: black;
+    height: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Estilos de los botones */
+.learn-more-button,
+.fav-button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    overflow: hidden;
+    transition: color 0.3s, background-color 0.3s;
+    margin-right: 5px;
+}
+
+.learn-more-button:hover,
+.fav-button:hover,
+.fav-button.active {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+/* Estilos de pantalla de bienvenida */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease-out;
+    z-index: 9999;
+}
+
+.splash-logo {
+    width: 150px;
+    height: auto;
+}
+
+.splash-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.lightsaber-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.lightsaber {
+    position: relative;
+    height: 4px;
+    width: 0;
+    background-color: #fff;
+    transition: width 1s ease-out;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0ff, 0 0 70px #0ff, 0 0 80px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+}
+
+.lightsaber.active {
+    width: 200px;
+}
+
+.lightsaber:before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 5px 0 0 5px;
+}
+
+/* Estilos de pie de página */
+.star-wars-footer {
+    background-color: #000;
+    color: #ffffff;
+    font-family: 'Star Jedi', sans-serif;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-logo img {
+    width: 150px;
+}
+
+.footer-nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin-right: 1rem;
+}
+
+.footer-nav li {
+    margin-right: 1rem;
+}
+
+.footer-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #ff0000;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ff0000;
+}
+
+/* Estilos de tarjeta */
+
+.card {
+    flex: 0 0 auto;
+    margin: 0 10px;
+    scroll-snap-align: start;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    background-color: #000;
+    color: #fbff00;
+}
+
+/* Información de la tarjeta */
+.card-info-container {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-info-container .img-fluid {
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.card-info-container .attributes-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-info-container .attribute {
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.card-info-container .fav-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.card-info-container .fav-button img {
+    margin-right: 10px;
+}
+
+.card-info-container .col-md-6 {
+    padding-bottom: 20px;
+}
+
+/* Favoritos */
+.favorites-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 500px;
+    max-height: 500px;
+    margin: auto; /* Centra horizontalmente si se usa en un contenedor de ancho fijo */
+}
+
+.favorites-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+
+.favorites-item button {
+    background-color: transparent;
+    border: none;
+    color: #f00;
+    cursor: pointer;
+}
+
+.favorites-item button:hover {
+    color: red;
+}
+
+.favorites-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #000;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #444;
+}
+::-webkit-scrollbar-track {
+    background-color: #333;
+    border-radius: 6px;
+}
+
+@media (max-width: 1024px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        justify-content: center;
+        flex-wrap: wrap; 
+        margin-top: 1rem;
+    }
+
+    .footer-nav li {
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .social-icons {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-logo img {
+        width: 120px;
+    }
+
+    .footer-nav ul {
+        flex-direction: column; 
+        margin-top: 1rem;
+    }
+
+    .footer-nav li {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .social-icons a {
+        margin-left: 0.5rem; 
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
